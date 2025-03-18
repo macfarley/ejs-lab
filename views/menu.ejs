@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu</title>
+</head>
+<body>
+    <%- include('./partials/nav') %>
+  <h1>Full Menu</h1>
+  <h2>Entrees</h2>
+<ul>
+    <% greenByteBistro.menu.filter(dish => greenByteBistro.menu.category === 'mains').forEach(dish => { %>
+        <li><%= greenByteBistro.menu.name %> - <%= greenByteBistro.menu.price %></li>
+    <% }) %>
+</ul>
+  <h2>Sides</h2>
+  <h2>Desserts</h2>
+</body>
+</html>

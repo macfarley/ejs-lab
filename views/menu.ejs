@@ -3,18 +3,45 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Menu</title>
+  <title>Full Menu</title>
 </head>
 <body>
     <%- include('./partials/nav') %>
   <h1>Full Menu</h1>
-  <h2>Entrees</h2>
-<ul>
-    <% greenByteBistro.menu.filter(dish => greenByteBistro.menu.category === 'mains').forEach(dish => { %>
-        <li><%= greenByteBistro.menu.name %> - <%= greenByteBistro.menu.price %></li>
-    <% }) %>
-</ul>
+  <h2>Mains</h2>
+    <ul>
+    <% greenByteBistro.menu.forEach(dish => {
+        if(dish.category === 'mains') { %>
+            <li><%= dish.name %> <% if(dish.rating >= 5) { %>
+        <p style="display: inline;">⭐</p>
+      <% } %>- $<%= dish.price %></li>
+                <ul><li><%= dish.details %>.</li>
+                    <li> Customer Rating <%= dish.rating %></li></ul>
+        <% } 
+    }) %>
+    </ul>
   <h2>Sides</h2>
-  <h2>Desserts</h2>
+  <ul>
+    <% greenByteBistro.menu.forEach(dish => {
+        if(dish.category === 'sides') { %>
+            <li><%= dish.name %><% if(dish.rating >= 5) { %>
+        <p style="display: inline;">⭐</p>
+      <% } %> - $<%= dish.price %></li>
+                <ul><li><%= dish.details %></li>
+                    <li> Customer Rating <%= dish.rating %></li></ul>
+        <% } 
+    }) %>
+    </ul>
+    <h2>Desserts</h2>
+    <ul>
+    <% greenByteBistro.menu.forEach(dish => {
+        if(dish.category === 'desserts') { %>
+            <li><%= dish.name %><% if(dish.rating >= 5) { %>
+        <p style="display: inline;">⭐</p>
+      <% } %> - $<%= dish.price %></li>
+                <ul><li><%= dish.details %></li>
+                    <li> Customer Rating <%= dish.rating %></li></ul>
+        <% } 
+    }) %>
 </body>
 </html>

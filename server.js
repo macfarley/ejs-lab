@@ -56,13 +56,23 @@ app.get('/', (req, res) => {
     greenByteBistro
   });
 });
-//menu page
+//full menu page
 app.get('/menu', (req, res) => {
   res.render('menu.ejs', {
     greenByteBistro
   });
 });
-
+//category page
+app.get('/menu/:category', (req, res) => {
+  const category = req.params.category
+  const menuItems = greenByteBistro.menu.filter(dish => dish.category === category)
+  res.render('category.ejs', {
+    greenByteBistro,
+    menuItems,
+    category
+  });
+});
 
 //where to listen for requests
 app.listen(3000);
+console.log('The Green Byte Bistro is open for business on port 3000!');

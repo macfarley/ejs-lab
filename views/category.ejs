@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= category.toUpperCase() %></title>
+</head>
+<body>
+    <%- include('./partials/nav') %>
+<h1><%= category.charAt(0).toUpperCase() + category.slice(1).toLowerCase() %></h1>
+<ul> <% menuItems.forEach(dish => { %>  
+    <li><%= dish.name %><% if(dish.rating >= 5) { %>
+        <p style="display: inline;">⭐</p>
+      <% } %>  - $<%= dish.price %></li>
+        <ul>
+            <li><%= dish.details %></li>
+            <li> Customer Rating <%= dish.rating %></li>
+        </ul>
+    <% }) %>
+</ul>
+</body>
+</html>

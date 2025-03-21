@@ -53,13 +53,15 @@ const greenByteBistro = {
 //home page
 app.get('/', (req, res) => {
   res.render('home.ejs', {
-    greenByteBistro
+    greenByteBistro,
+    title: 'The Green Byte Bistro'
   });
 });
 //full menu page
 app.get('/menu', (req, res) => {
   res.render('menu.ejs', {
-    greenByteBistro
+    greenByteBistro,
+    title: 'Menu'
   });
 });
 //category page
@@ -69,10 +71,11 @@ app.get('/menu/:category', (req, res) => {
   res.render('category.ejs', {
     greenByteBistro,
     menuItems,
-    category
+    category,
+    title: category.charAt(0).toUpperCase() + category.slice(1)
   });
 });
 
 //where to listen for requests
-app.listen(3000);
-console.log('The Green Byte Bistro is open for business on port 3000!');
+app.listen(3001);
+console.log('The Green Byte Bistro is open for business on port 3001!');

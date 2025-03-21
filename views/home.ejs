@@ -1,7 +1,5 @@
 <%- include('./partials/html-header') %>
 
-<body>
-    <%- include('./partials/nav') %>
   <h1><%= greenByteBistro.name %></h1>
   <address><%= greenByteBistro.address %></address>
   <p><%= greenByteBistro.phone %></p>
@@ -10,6 +8,5 @@
   <% } else { %>
     <p>Sorry, we are closed.</p>
   <% } %>
-  
-</body>
-</html>
+
+  <%- include('./partials/footer.ejs') %>

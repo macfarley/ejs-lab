@@ -77,5 +77,5 @@ app.get('/menu/:category', (req, res) => {
 });
 
 //where to listen for requests
-app.listen(3001);
-console.log('The Green Byte Bistro is open for business on port 3001!');
+app.listen(3000);
+console.log('The Green Byte Bistro is open for business on port 3000!');
